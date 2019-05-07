@@ -2,8 +2,6 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<c:redirect url="Home" />
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,5 +12,8 @@
   <title>FileBox</title>
 </head>
 <body>
+<div class="container">
+  <h1>Logged In!</h1>
+</div>
 </body>
 </html>

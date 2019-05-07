@@ -23,7 +23,7 @@
     <p class="h4 mb-4">Sign in</p>
 
     <!-- Email -->
-    <input type="email" name="user" id="user" class="form-control mb-4" placeholder="E-mail">
+    <input type="text" name="user" id="user" class="form-control mb-4" placeholder="E-mail">
 
     <!-- Password -->
     <input type="password" name="password" id="password" class="form-control mb-4" placeholder="Password">
@@ -32,8 +32,8 @@
       <div>
         <!-- Remember me -->
         <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
-          <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
+          <input type="checkbox" class="custom-control-input" id="LoginFormRemember">
+          <label class="custom-control-label" for="LoginFormRemember">Remember me</label>
         </div>
       </div>
       <div>
@@ -43,7 +43,7 @@
     </div>
 
     <!-- Sign in button -->
-    <button class="btn btn-primary btn-block my-4" type="submit">Sign in</button>
+    <button class="btn btn-primary btn-block my-4" name="signIn" type="submit">Sign in</button>
 
     <!-- Register -->
     <p>Not a member?

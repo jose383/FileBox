@@ -1,5 +1,6 @@
 package controller;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,28 +14,40 @@ import java.io.PrintWriter;
 public class LoginServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        HttpSession session = request.getSession();
+        String user = (String) session.getAttribute("user");
+
+        // Check Login
+        if (user != null) {
+            // User is already logged in
+            response.sendRedirect("Home");
+            return;
+        }
+
         request.getRequestDispatcher("/WEB-INF/view/Login.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        PrintWriter out = response.getWriter();
 
         // Get user's info
         String user = request.getParameter("user");
         String password = request.getParameter("password");
 
         // Validate with MySQL
-        if (user.equals("abc") && password.equals("123")){
+        if (user.equals("asd") && password.equals("asd")){
             // Create Session
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
 
             // Redirect
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("Home");
+            return;
         } else {
-            // Print or redirect to Login Error page
-            //out.println("Wrong Username or password");
+            // Error
+            request.setAttribute("error", "Invalid username and/or password");
         }
+
+        doGet(request, response);
     }
 }
