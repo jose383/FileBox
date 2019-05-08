@@ -1,5 +1,7 @@
 package controller;
 
+import model.ValidateSWE;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,14 +33,14 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         // Get user's info
-        String user = request.getParameter("user");
+        String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        // Validate with MySQL
-        if (user.equals("asd") && password.equals("asd")){
+        // Validate with Database
+        if (ValidateSWE.checkUser(email, password)){
             // Create Session
             HttpSession session = request.getSession();
-            session.setAttribute("user", user);
+            session.setAttribute("user", email);
 
             // Redirect
             response.sendRedirect("Home");

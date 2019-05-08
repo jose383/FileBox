@@ -6,26 +6,32 @@ public class ValidateSWE
  {
      public static boolean checkUser(String email,String password)
      {
-      boolean st =false;
-      try{
+         boolean st =false;
+         try
+         {
+             String url = "jdbc:mysql://cs3.calstatela.edu/cs3220stu115";
+             String dbUsername = "cs3220stu115";
+             String dbPassword = "G!jxS5!m";
 
-	 //loading drivers for mysql
-         Class.forName("com.mysql.jdbc.Driver");
+             // Loading Driver for MySQL
+             Class.forName("com.mysql.jdbc.Driver");
 
- 	 //creating connection with the database 
-         Connection con = DriverManager.getConnection
-                        ("jdbc:mysql:/ /localhost:8080/cs3220stu115","id","studytonight");
-         PreparedStatement ps =con.prepareStatement
-                             ("select * from users where email=? and password=?");
-         ps.setString(1, email);
-         ps.setString(2, password);
-         ResultSet rs =ps.executeQuery();
-         st = rs.next();
-        
-      }catch(Exception e)
-      {
+             // Creating connection with the database
+             Connection c = DriverManager.getConnection(url, dbUsername, dbPassword);
+
+             // Check info
+             PreparedStatement ps;
+             ps = c.prepareStatement("select email, password from users where email=? and password=?");
+             ps.setString(1, email);
+             ps.setString(2, password);
+             ResultSet rs = ps.executeQuery();
+             st = rs.next();
+         }
+         catch(Exception e)
+         {
           e.printStackTrace();
-      }
-         return st;                 
+         }
+
+         return st;
   }   
 }

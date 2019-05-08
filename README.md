@@ -34,9 +34,7 @@ We haven't choose whose server we will use.
 ## Built With
 
 * [Blocs](https://blocsapp.com) - A fast, easy to use and powerful visual web design tool, that lets you create responsive websites without writing code.
-
 * [IntelliJ IDEA](https://www.jetbrains.com/idea/) - IDE from JetBrains ([Free Here](https://www.jetbrains.com/student/)).
-
 * [Eclipse for Enterprise Java Developers](https://www.eclipse.org/downloads/packages/release/kepler/sr2/eclipse-ide-java-ee-developers) - IDE.
 
 ## Authors
