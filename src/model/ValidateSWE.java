@@ -14,7 +14,7 @@ public class ValidateSWE
              String dbPassword = "G!jxS5!m";
 
              // Loading Driver for MySQL
-             Class.forName("com.mysql.jdbc.Driver");
+             //Class.forName("com.mysql.jdbc.Driver"); // Not Necessary
 
              // Creating connection with the database
              Connection c = DriverManager.getConnection(url, dbUsername, dbPassword);
