@@ -31,7 +31,7 @@ Password: asd
 
 ## Deployment
 
-We haven't choose whose server we will use.
+CS3 Server is currently down.
 
 ## Built With
 
@@ -41,6 +41,6 @@ We haven't choose whose server we will use.
 
 ## Authors
 
-* **Jose Lopez** - 33.33%
+* **Jose F. Lopez** - 33.33%
 * **Hismark Carrera** - 33.33%
 * **Roman Arias** - 33.33%
