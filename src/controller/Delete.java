@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/Delete")
 public class Delete extends HttpServlet {
@@ -20,23 +21,25 @@ public class Delete extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		String fileName = request.getParameter("fileName"), applicationPath = getServletContext().getRealPath(""),
-				downloadPath = applicationPath + File.separator + UPLOAD_DIR,
-				filePath = downloadPath + File.separator + fileName;
-		File file = new File(filePath);
-        if(file.delete()){
-            System.out.println("file deleted");
-        }else System.out.println("File not deleted");
-        
-        
-		response.sendRedirect("UploadedFiles");
+		HttpSession session = request.getSession();
+		String user = (String) session.getAttribute("user");
+		String filename = request.getParameter("fileName");
 
-       
+		// Get the path to the file and create a java.ioFile object
+		String path = getServletContext().getRealPath("WEB-INF/uploads") + "/" + user + "/" + filename;
+		File file = new File(path);
+
+		if (file.delete()){
+            System.out.println("file deleted");
+        } else {
+			System.out.println("File not deleted");
+		}
+
+
+		response.sendRedirect("Home");
     }
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
 

@@ -26,7 +26,6 @@ public class Download extends HttpServlet {
 
 		// Get the path to the file and create a java.ioFile object
 		String path = getServletContext().getRealPath("WEB-INF/uploads") + "/" + user + "/" + filename;
-		System.out.println(path);
 		File file = new File(path);
 
 		// Set the response headers. File.length() returns the size of the file

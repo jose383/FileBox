@@ -85,7 +85,11 @@
             <tr>
               <td align="center"><span id="fileName"><%=uploadDetails.get(i).getFileName() %></span></td>
               <td align="center"><span id="fileSize"><%=uploadDetails.get(i).getFileSize() %> KB</span></td>
-              <td align="center"><span id="fileDownload"><a id="downloadLink" class="hyperLink" href="<%=request.getContextPath()%>/Download?fileName=<%=uploadDetails.get(i).getFileName() %>">Download</a></span></td>
+              <td align="center">
+                <span><a href="<%=request.getContextPath()%>/Download?fileName=<%=uploadDetails.get(i).getFileName() %>">Download</a></span>
+                &nbsp;|&nbsp;
+                <span><a href="<%=request.getContextPath()%>/Delete?fileName=<%=uploadDetails.get(i).getFileName() %>">Delete</a></span>
+              </td>
             </tr>
             <% }
             } else { %>
