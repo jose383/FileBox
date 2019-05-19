@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class ValidateSWE
  {
-     public static boolean checkUser(String email,String password)
+     public static boolean checkUser(String username,String password)
      {
          boolean st =false;
          try
@@ -21,8 +21,8 @@ public class ValidateSWE
 
              // Check info
              PreparedStatement ps;
-             ps = c.prepareStatement("select email, password from users where email=? and password=?");
-             ps.setString(1, email);
+             ps = c.prepareStatement("select username, password from users where username=? and password=?");
+             ps.setString(1, username);
              ps.setString(2, password);
              ResultSet rs = ps.executeQuery();
              st = rs.next();

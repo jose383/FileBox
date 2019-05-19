@@ -1,10 +1,6 @@
-<%@ page import="model.UploadDetail" %>
-<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!doctype html>
 <html>
@@ -65,36 +61,19 @@
   <!-- bloc-0 END -->
 
   <!-- bloc-1 -->
-  <div class="bloc l-bloc" id="bloc-1">
-    <div class="container">
+  <div class="bloc l-bloc " id="bloc-1">
+    <div class="container bloc-lg">
       <div class="row">
         <div class="col">
-          <table class="table table-hover">
-            <thead>
-            <tr class="text-center">
-              <th scope="col">File Name</th>
-              <th scope="col">Size</th>
-              <th scope="col" align="center">Action</th>
-            </tr>
-            </thead>
-            <tbody>
-            <% List<UploadDetail> uploadDetails = (List<UploadDetail>)request.getAttribute("uploads");
-              if(uploadDetails != null && uploadDetails.size() > 0) {
-                for(int i=0; i<uploadDetails.size(); i++) {
-            %>
-            <tr>
-              <td align="center"><span id="fileName"><%=uploadDetails.get(i).getFileName() %></span></td>
-              <td align="center"><span id="fileSize"><%=uploadDetails.get(i).getFileSize() %> KB</span></td>
-              <td align="center"><span id="fileDownload"><a id="downloadLink" class="hyperLink" href="<%=request.getContextPath()%>/Download?fileName=<%=uploadDetails.get(i).getFileName() %>">Download</a></span></td>
-            </tr>
-            <% }
-            } else { %>
-            <tr>
-              <td colspan="3" align="center"><span id="noFiles">No Files Uploaded.....!</span></td>
-            </tr>
-            <% } %>
-            </tbody>
-          </table>
+          <h1 class="mg-md text-center">
+            Completed
+          </h1>
+          <h3 class="mg-md float-none text-center">
+            ${count} file(s) uploaded to ${fileDir}.
+          </h3>
+          <div class="text-center">
+            <a href="Home" class="btn btn-lg btn-wire btn-rd wire-btn-azure">Return to Files<br></a>
+          </div>
         </div>
       </div>
     </div>

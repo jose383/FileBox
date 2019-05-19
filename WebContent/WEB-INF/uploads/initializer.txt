@@ -1,0 +1,1 @@
+I added this file because IDE don't create the folder if it is empty. Otherwise you get the error of path not found or file does not exist.

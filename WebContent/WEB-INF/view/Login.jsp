@@ -49,18 +49,39 @@
       </div>
       <div class="row">
         <div class="col-lg-6 offset-lg-3 offset-md-2 col-md-8">
-          <form id="form" data-form-type="blocs-form" novalidate action="Login" method="POST">
+          <form id="form" data-form-type="blocs-form" action="Login" method="POST">
+            <c:if test="${ not empty loginError }">
+              <div class="help-block">
+                <ul class="list-unstyled alert alert-warning mt-2" role="alert">
+                  <li>${loginError}</li>
+                </ul>
+              </div>
+            </c:if>
             <div class="form-group">
               <label>
-                Email
+                Username
               </label>
-              <input id="email" class="form-control" required data-validation-required-message="Enter an email" name="email" />
+              <input id="username" class="form-control" name="username" value="${param.username}"/>
+              <c:if test="${ not empty usernameError }">
+                <div class="help-block">
+                  <ul class="list-unstyled alert alert-warning mt-2" role="alert">
+                    <li>${usernameError}</li>
+                  </ul>
+                </div>
+              </c:if>
             </div>
             <div class="form-group">
               <label>
                 Password
               </label>
-              <input class="form-control" type="password" required data-validation-required-message="Enter a password" name="password" id="password" />
+              <input class="form-control" type="password" name="password" id="password" value="${param.password}" />
+              <c:if test="${ not empty passwordError }">
+                <div class="help-block">
+                  <ul class="list-unstyled alert alert-warning mt-2" role="alert">
+                    <li>${passwordError}</li>
+                  </ul>
+                </div>
+              </c:if>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="checkbox" id="optin" name="optin" />

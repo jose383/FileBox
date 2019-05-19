@@ -49,14 +49,14 @@
       </div>
       <div class="row">
         <div class="col-lg-6 offset-lg-3 offset-md-2 col-md-8">
-          <form id="form" data-form-type="blocs-form" novalidate action="SignUp" method="POST">
+          <form id="form" data-form-type="blocs-form" action="SignUp" method="POST">
             <div class="row">
               <div class="col">
                 <div class="form-group">
                   <label>
                     First Name
                   </label>
-                  <input class="form-control" name="first_name" required data-validation-required-message="Enter First Name" id="first_name" />
+                  <input class="form-control" name="first_name" id="first_name" value="${param.first_name}" />
                 </div>
               </div>
               <div class="col">
@@ -64,21 +64,35 @@
                   <label>
                     Last Name
                   </label>
-                  <input class="form-control" name="last_name" required data-validation-required-message="Enter Last Name" id="last_name" />
+                  <input class="form-control" name="last_name" id="last_name"  value="${param.last_name}"/>
                 </div>
               </div>
             </div>
             <div class="form-group">
               <label>
-                Email<br>
+                Username<br>
               </label>
-              <input id="email" class="form-control" required data-validation-required-message="Enter Email" name="email" />
+              <input id="username" class="form-control" name="username" value="${param.username}" />
+              <c:if test="${ not empty usernameError }">
+                <div class="help-block">
+                  <ul class="list-unstyled alert alert-warning mt-2" role="alert">
+                    <li>${usernameError}</li>
+                  </ul>
+                </div>
+              </c:if>
             </div>
             <div class="form-group">
               <label>
                 Password
               </label>
-              <input class="form-control " type="password" name="password" id="password" required data-validation-required-message="Enter Password" />
+              <input class="form-control " type="password" name="password" id="password" value="${param.password}" />
+              <c:if test="${ not empty passwordError }">
+                <div class="help-block">
+                  <ul class="list-unstyled alert alert-warning mt-2" role="alert">
+                    <li>${passwordError}</li>
+                  </ul>
+                </div>
+              </c:if>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="checkbox" id="optin" name="optin" checked="checked" />
