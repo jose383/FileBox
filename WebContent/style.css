@@ -122,6 +122,17 @@ button{
 	outline: none!important;
 }
 
+.btn-rd{
+	border-radius: 40px;
+}
+.btn-wire{
+	background:transparent!important;
+	border:2px solid transparent;
+}
+.btn-wire:hover{
+	background:transparent!important;
+	border:2px solid transparent;
+}
 
 
 
@@ -140,6 +151,24 @@ button{
 	border-radius:0 0 29px 29px;
 }
 
+/* = Dividers
+-------------------------------------------------------------- */
+.divider-h{
+	padding:20px 0;
+	width:100%;
+	display:inline-block;
+}
+.divider-h span{
+	display: block;
+	border-top:1px solid transparent;
+}
+.divider-half{
+	width: 50%;
+	margin: 0 auto;
+}
+.dropdown-menu .divider-h,.dropdown-menu .divider-half{
+	padding:0;
+}
 
 /* = Forms
 -------------------------------------------------------------- */
@@ -203,6 +232,10 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 .btn-azure:hover{
 	background:#0078cc!important;
 	color:#FFFFFF!important;
+}
+.wire-btn-azure{
+	color:#0096FF!important;
+	border-color:#0096FF!important;
 }
 
 /* Link colour styles */

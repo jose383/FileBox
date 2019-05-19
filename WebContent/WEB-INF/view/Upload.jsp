@@ -59,6 +59,10 @@
 						<div class="divider-h">
 							<span class="divider"></span>
 						</div>
+						<hr>
+						<div class="divider-h">
+							<span class="divider"></span>
+						</div>
 						<button class="bloc-button btn btn-lg btn-block btn-rd btn-azure" type="submit" name="upload">
 							Upload
 						</button>
