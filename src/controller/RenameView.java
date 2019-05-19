@@ -9,11 +9,12 @@ import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 
-@WebServlet("/Rename")
-public class Rename extends HttpServlet {
+@WebServlet("/RenameView")
+public class RenameView extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	public static final String UPLOAD_DIR = "uploads";
 
-	public Rename() {
+	public RenameView() {
 		super();
 	}
 
@@ -29,32 +30,8 @@ public class Rename extends HttpServlet {
 			return;
 		}
 
-		boolean hasError = false;
-		String newName = request.getParameter("newName");
-		if (newName == null || newName.trim().length() == 0){
-			hasError = true;
-		}
-
-		if (hasError){
-			response.sendRedirect("RenameView?hasError=true&fileName=" + request.getParameter("fileName"));
-			return;
-		}
-
-		// Get the path to the file and create a java.ioFile object
-		String filename = request.getParameter("fileName");
-		String path = getServletContext().getRealPath("WEB-INF/uploads") + "/" + user + "/";
-		File file = new File(path + filename);
-
-
-		//Rename file
-		File newFile = new File(path + newName);
-		if(file.renameTo(newFile)){
-			System.out.println("File Rename Success!");;
-		}else{
-			System.out.println("File Rename Failed!");
-		}
-
-		response.sendRedirect("Home");
+		//request.setAttribute("fileName", request.getAttribute("fileName"));
+		request.getRequestDispatcher("/WEB-INF/view/Rename.jsp").forward(request, response);
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

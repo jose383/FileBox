@@ -41,6 +41,6 @@ We haven't choose whose server we will use.
 
 ## Authors
 
-* **Jose Lopez**
-* **Hismark Carrera**
-* **Roman Arias**
+* **Jose Lopez** - 33.33%
+* **Hismark Carrera** - 33.33%
+* **Roman Arias** - 33.33%

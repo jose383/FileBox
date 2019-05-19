@@ -88,7 +88,7 @@
               <td align="center">
                 <span><a href="<%=request.getContextPath()%>/Download?fileName=<%=uploadDetails.get(i).getFileName() %>">Download</a></span>
                 &nbsp;|&nbsp;
-                <span><a href="<%=request.getContextPath()%>/Rename?fileName=<%=uploadDetails.get(i).getFileName() %>">Rename</a></span>
+                <span><a href="<%=request.getContextPath()%>/RenameView?fileName=<%=uploadDetails.get(i).getFileName() %>">Rename</a></span>
                 &nbsp;|&nbsp;
                 <span><a href="<%=request.getContextPath()%>/Delete?fileName=<%=uploadDetails.get(i).getFileName() %>">Delete</a></span>
               </td>
