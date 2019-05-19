@@ -19,13 +19,13 @@ public class Delete extends HttpServlet {
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 
 		HttpSession session = request.getSession();
 		String user = (String) session.getAttribute("user");
-		String filename = request.getParameter("fileName");
+
 
 		// Get the path to the file and create a java.ioFile object
+		String filename = request.getParameter("fileName");
 		String path = getServletContext().getRealPath("WEB-INF/uploads") + "/" + user + "/" + filename;
 		File file = new File(path);
 

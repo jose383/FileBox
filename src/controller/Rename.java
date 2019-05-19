@@ -1,22 +1,22 @@
 package controller;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.IOException;
 
-
-@WebServlet("/Download")
-public class Download extends HttpServlet {
+@WebServlet("/Rename")
+public class Rename extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	public static final String UPLOAD_DIR = "uploads";
 
+	public Rename() {
+		super();
+	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -25,8 +25,8 @@ public class Download extends HttpServlet {
 
 		// Check Login
 		if (user == null) {
-			// User is already logged in
-			response.sendRedirect("Home");
+			// User did not log in
+			response.sendRedirect("Login");
 			return;
 		}
 
@@ -35,23 +35,18 @@ public class Download extends HttpServlet {
 		String path = getServletContext().getRealPath("WEB-INF/uploads") + "/" + user + "/" + filename;
 		File file = new File(path);
 
-		// Set the response headers. File.length() returns the size of the file
-		// as long, which we need to convert to a String
-		response.setContentType( "application/octet-stream" );
-		response.setHeader( "Content-Disposition", "attachment; filename=" + filename );
+		/*
+		if (file.delete()){
+            System.out.println("file deleted");
+        } else {
+			System.out.println("File not deleted");
+		}
+		*/
 
-		// Binary files need to read/written in bytes,
-		FileInputStream in = new FileInputStream( file );
-		OutputStream out = response.getOutputStream();
-		byte buffer[] = new byte[2048];
-		int bytesRead;
-		while( (bytesRead = in.read( buffer )) > 0 )
-			out.write( buffer, 0, bytesRead );
-		in.close();
-	}
+		response.sendRedirect("Home");
+    }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
