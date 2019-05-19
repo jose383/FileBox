@@ -27,7 +27,7 @@ Email: asd
 Password: asd
 ```
 
-[See all Login Credentials Here](http://cs3.calstatela.edu:8080/cs3220stu115/lab7/query.jsp?sql=select+email%2C+password+from+users&query=Execute+Query)
+[See all Login Credentials Here](http://cs3.calstatela.edu:8080/cs3220stu115/lab7/query.jsp?sql=select+username%2C+password+from+users&query=Execute+Query)
 
 ## Deployment
 
