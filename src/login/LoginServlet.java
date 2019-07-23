@@ -1,7 +1,5 @@
 package login;
 
-import model.ValidateSWE;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
