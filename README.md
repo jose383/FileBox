@@ -8,7 +8,7 @@ I created new packages with singular names (for ex: models -> model) in case you
 
 ### Installing
 
-Avoid ```web.xml``` file is using the same Workspace as the class. Keep a copy a your web.xml file in case you replace it by mistake.
+Avoid ```web.xml``` file if using the same Workspace as the class. Keep a copy a your web.xml file in case you replace it by mistake.
 
 ## Running the tests
 
